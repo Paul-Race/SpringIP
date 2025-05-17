@@ -21,9 +21,9 @@ public class Matricula {
     private Date fecha;
 
     @Column(nullable = false, length = 50)
-    private int alumno_id;
+    private int alumnoId;
 
     @Column(nullable = false, length = 50)
-    private String carrera_id;
+    private int carreraId;
 
 }
