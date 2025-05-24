@@ -41,4 +41,9 @@ public class AlumnoService {
         return alumnoRepository.findByNombres(nombres);
     }
 
+    //guardar un alumno
+    public Alumno save(Alumno alumno) {
+        return alumnoRepository.save(alumno);
+    }
+
 }

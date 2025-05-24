@@ -50,7 +50,8 @@ public class AlumnoController {
         return ResponseEntity.status(200).body("Alumno eliminado");
     }
 
-    //Buscar parametros con el "/buscar?correo=dfhjskdfh"
+    //Buscar parametros con el "/buscarCorreo?correo=dfhjskdfh"
+    //Puedo pedir multiples parametros, de los cuales el desarrollador puede elegir cuales mandar y cuales no
     @GetMapping("/api/v1/alumnos/buscarCorreo")
     public ResponseEntity<?> buscarAlumnoCorreo(@RequestParam String correo) {
         Alumno alumno = alumnoService.findbyEmail(correo);
@@ -64,6 +65,13 @@ public class AlumnoController {
         List<Alumno> alumno = alumnoService.findByNombres(nombres);
 
         return ResponseEntity.status(200).body(alumno);
+    }
+
+    @PostMapping("/api/v1/alumnos")
+    public ResponseEntity<?> saveAlumno(@RequestBody Alumno alumno) {
+        Alumno alumnoGuardado = alumnoService.save(alumno);
+
+        return ResponseEntity.status(201).body(alumnoGuardado);
     }
 
 
